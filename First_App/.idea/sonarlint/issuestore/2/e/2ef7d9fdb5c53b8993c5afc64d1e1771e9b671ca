@@ -1,0 +1,18 @@
+
+S	java:S106""9Replace this use of System.out or System.err by a logger.(û…àÙøÿÿÿÿ
+N	java:S1062"9Replace this use of System.out or System.err by a logger.(âÕ•
+V	java:S125"<This block of commented-out lines of code should be removed.(èÓÜÜüÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(»êå×
+N	java:S106"9Replace this use of System.out or System.err by a logger.(İ—¾Ó
+N	java:S1063"9Replace this use of System.out or System.err by a logger.(éÖ¨
+N	java:S106"9Replace this use of System.out or System.err by a logger.(©ü‘à
+S	java:S1066"9Replace this use of System.out or System.err by a logger.(ÜùÙÔúÿÿÿÿ
+Z	java:S106H"9Replace this use of System.out or System.err by a logger.(çù³åıÿÿÿÿ8ª­—ö.
+N	java:S106*"9Replace this use of System.out or System.err by a logger.(öİ÷ó
+S	java:S106,"9Replace this use of System.out or System.err by a logger.(û…àÙøÿÿÿÿ
+N	java:S106 "9Replace this use of System.out or System.err by a logger.(öİ÷ó
+N	java:S106&"9Replace this use of System.out or System.err by a logger.(‘«âµ
+h
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 31 to the 15 allowed.(Çµí‘
+Q	java:S125"<This block of commented-out lines of code should be removed.(€Ì¶õ
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(±¢™ùÿÿÿÿ8ÃœÓ™ö.

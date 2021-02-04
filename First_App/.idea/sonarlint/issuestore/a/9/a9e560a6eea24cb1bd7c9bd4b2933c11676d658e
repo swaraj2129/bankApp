@@ -1,0 +1,27 @@
+
+Z	java:S106p"9Replace this use of System.out or System.err by a logger.(¿ÔÑÁúÿÿÿÿ8ÈÇ˜ö.
+U	java:S106t"9Replace this use of System.out or System.err by a logger.(ÑøÊª8ÈÇ˜ö.
+c
+java:S1126"AReplace this if-then-else statement by a single return statement.(Ï‹¥±ûÿÿÿÿ8ìÁŸ˜ö.
+T	java:S106,"9Replace this use of System.out or System.err by a logger.(°®Ó
+8ìÁŸ˜ö.
+Z	java:S106Q"9Replace this use of System.out or System.err by a logger.(¿ÔÑÁúÿÿÿÿ8ìÁŸ˜ö.
+U	java:S106e"9Replace this use of System.out or System.err by a logger.(éÎÖ³8ÈÇ˜ö.
+T	java:S1067"9Replace this use of System.out or System.err by a logger.(ÎÒÑR8ìÁŸ˜ö.
+Z	java:S106A"9Replace this use of System.out or System.err by a logger.(¿ÔÑÁúÿÿÿÿ8ìÁŸ˜ö.
+U	java:S106F"9Replace this use of System.out or System.err by a logger.(éÎÖ³8ìÁŸ˜ö.
+T	java:S106-"9Replace this use of System.out or System.err by a logger.(Œƒ€8ìÁŸ˜ö.
+Z	java:S106a"9Replace this use of System.out or System.err by a logger.(¿ÔÑÁúÿÿÿÿ8ÈÇ˜ö.
+o
+java:S3776""RRefactor this method to reduce its Cognitive Complexity from 43 to the 15 allowed.(¨Å¡Ü8ìÁŸ˜ö.
+U	java:S106w"9Replace this use of System.out or System.err by a logger.(…—ûÍ8ÈÇ˜ö.
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÿÓ©€8±™½™ö.
+X	java:S125#"<This block of commented-out lines of code should be removed.(á¥¸™8ìÁŸ˜ö.
+U	java:S106)"9Replace this use of System.out or System.err by a logger.(¸ØÉ–8ìÁŸ˜ö.
+U	java:S106V"9Replace this use of System.out or System.err by a logger.(éÎÖ³8ìÁŸ˜ö.
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ü¹±Ìÿÿÿÿÿ8ìÁŸ˜ö.
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(¾’…†úÿÿÿÿ8ìÁŸ˜ö.
+]	java:S125"<This block of commented-out lines of code should be removed.(ü¢¿ìıÿÿÿÿ8ìÁŸ˜ö.
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(û…àÙøÿÿÿÿ8ìÁŸ˜ö.
+q
+java:S1104"TMake username a static final constant or non-public and provide accessors if needed.(Ü±›Ô8¢÷Ö™ö.
