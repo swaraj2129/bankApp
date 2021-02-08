@@ -23,7 +23,7 @@ public class Main {
         String regex = "^[A-Za-z]\\w{4,8}$";
         Pattern username_check = Pattern.compile(regex);
 
-        System.out.println("Enter userName");
+        System.out.println("Enter userName with at least 4 letters and at most 8 letter");
         String user = sc.nextLine();
         Matcher m = username_check.matcher(user);
         if(!m.matches()){
