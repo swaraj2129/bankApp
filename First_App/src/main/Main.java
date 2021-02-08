@@ -23,7 +23,7 @@ public class Main {
         String regex = "^[A-Za-z]\\w{4,8}$";
         Pattern username_check = Pattern.compile(regex);
 
-        System.out.println("Enter userName with at least 4 letters and at most 8 letter");
+        System.out.println("Enter userName with at least 5  letters and at most 8 letter");
         String user = sc.nextLine();
         Matcher m = username_check.matcher(user);
         if(!m.matches()){
@@ -51,26 +51,21 @@ public class Main {
         if(reg.isEmpty()){
             System.out.println("No user Exist");
         }
+
+        passWordCheck(user,pass,reg,loginArray);
+    }
+    public static void passWordCheck(String user, String pass, ArrayList<Register> reg, ArrayList<Login> loginArray){
         boolean exist = false;//exist is used for remembering the user if it has login successfully
-                                // and its object will be present in main memory stored in loginArray so that when user logout out
-                                // and again come back data is not deleted
-         boolean enter = false;
+        // and its object will be present in main memory stored in loginArray so that when user logout out
+        // and again come back data is not deleted
+        boolean enter = false;
         for (int i = 0; i < reg.size(); i++) {
-
-
-            //System.out.println(reg.get(i).getUsername());
-            //System.out.println(reg.get(i).getPassword());
 
             if(reg.get(i).getUsername().equals(user)  && reg.get(i).getPassword().equals(pass)){
                 System.out.println("Entered");
                 enter = true;
-                for (int j  = 0;j<loginArray.size();j++) {
-                    if (loginArray.get(j).username.equals(user)){
-                        exist = true;
-                        loginArray.get(j).success();
-                        break;
-                    }
-                }
+                exist = userOnceloggedIn(user,loginArray);
+
                 if(!exist){
                     Login lotemp = new Login(user);
                     lotemp.success();
@@ -90,6 +85,19 @@ public class Main {
 
         }
     }
+
+    private static boolean userOnceloggedIn(String user,ArrayList<Login> loginArray) {
+        boolean exist = false;
+        for (int j  = 0;j<loginArray.size();j++) {
+            if (loginArray.get(j).username.equals(user)){
+                exist = true;
+                loginArray.get(j).success();
+                break;
+            }
+        }
+        return exist;
+    }
+
     public static void main(String[] args) {
         ArrayList<Register> reg = new ArrayList<>();
         ArrayList<Login> loginArray = new ArrayList<>();
