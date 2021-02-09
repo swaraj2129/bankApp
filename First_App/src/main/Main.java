@@ -18,15 +18,18 @@ public class Main {
         System.out.println("Select 2 for login");
         System.out.println("Select 3 for Exit");
     }
-
-    public static void registerDisplay(ArrayList<Register> reg){
+    public static boolean validUsernamePasswordCheck(String toBeMatched){
         String regex = "^[A-Za-z]\\w{4,8}$";
         Pattern username_check = Pattern.compile(regex);
+        Matcher m = username_check.matcher(toBeMatched);
+        return m.matches();
+    }
+    public static void registerDisplay(ArrayList<Register> reg){
 
-        System.out.println("Enter userName with at least 5  letters and at most 8 letter");
+
+        System.out.println("Enter userName with at least 5 letters and at most 8 letter");
         String user = sc.nextLine();
-        Matcher m = username_check.matcher(user);
-        if(!m.matches()){
+        if(!validUsernamePasswordCheck(user)){
             try {
                 throw new InValidInputException("Enter a Valid UserName");
             }
@@ -35,11 +38,21 @@ public class Main {
             }
         }
         else {
-            System.out.println("Enter Password");
+            System.out.println("Enter Password with at least 5 letters and at most 8 letter");
             String pass = sc.nextLine();
-            reg.add(new Register(user, pass));
+            if (!validUsernamePasswordCheck(pass)){
+                try {
+                    throw new InValidInputException("Enter a Valid PassWord");
+                }
+                catch (InValidInputException e){
+                    System.out.println(e);
+                }
+            }
+            else {
+                reg.add(new Register(user, pass));
 
-            System.out.println("Registerd");
+                System.out.println("Registerd");
+            }
         }
     }
 
