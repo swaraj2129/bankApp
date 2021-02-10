@@ -61,13 +61,19 @@ public class Login {
         System.out.println("Welcome to Java Application");
         int ch;
         do {
-            System.out.println("Main Menu\n1.Add accountArray \n 2. Search By accountArray\n 3. Deposit\n 4. Withdrawal\n 5.Remove\n 6.Exit");
+            System.out.println("Main Menu\n1.Add account \n 2. Search By account number\n 3. Deposit\n 4. Withdrawal\n 5.Remove\n 6.Exit");
             System.out.println("Ur Choice :");
             ch = sc.nextInt();
             switch (ch) {
                 case 1:
-                    accountArray.add(new Account());
-                    accountArray.get(accountArray.size()-1).addAccount();
+                    try {
+                        Account temp = new Account();
+                        temp.addAccount();
+                        accountArray.add(temp);
+                    }
+                    catch (Exception e){
+                        System.out.println(e);
+                    }
 
                     break;
 
@@ -76,11 +82,23 @@ public class Login {
                     break;
 
                 case 3:
-                    depositDisplay(accountArray);
+                    try {
+                        depositDisplay(accountArray);
+
+                    }
+                    catch (Exception e){
+                        System.out.println(e);
+
+                    }
                     break;
 
                 case 4:
-                    withdrawDisplay(accountArray);
+                    try {
+                        withdrawDisplay(accountArray);
+                    }
+                    catch (Exception e){
+                        System.out.println(e);
+                    }
                     break;
                 case 5:
                     removeDisplay();

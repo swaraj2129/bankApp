@@ -13,24 +13,20 @@ public class Account {
     public void addAccount() {
         System.out.print("Enter Account No: ");
 
-        try {
-            accno = sc.next();
-            int i = Integer.parseInt(accno);
-            if (i <= 0){
-                throw new InValidInputException(GREATER_THAN_ZERO);
-            }
-            else {
-                System.out.print("Enter Name: ");
-                name = sc.next();
-                System.out.print("Enter Balance: ");
-                balance = sc.nextLong();
-            }
-        }
-        catch (Exception e){
-            System.out.println(e);
-        }
 
+        accno = sc.next();
+        int i = Integer.parseInt(accno);
+        if (i <= 0){
+            throw new InValidInputException(GREATER_THAN_ZERO);
+        }
+        else {
+            System.out.print("Enter Name: ");
+            name = sc.next();
+            System.out.print("Enter Balance: ");
+            balance = sc.nextLong();
+        }
     }
+
 
     public void deposit() {
         long amt;
@@ -38,15 +34,11 @@ public class Account {
         System.out.println("Enter Amount : ");
         amt = sc.nextLong();
         if (amt < 0){
-            try {
-                throw new InValidInputException(GREATER_THAN_ZERO);
-            }
-            catch (Exception e){
-                System.out.println(e);
-            }
+
+            throw new InValidInputException(GREATER_THAN_ZERO);
         }
         else
-        balance = balance + amt;
+            balance = balance + amt;
     }
 
     public void withdraw() {
@@ -56,15 +48,10 @@ public class Account {
         if (balance >= amt) {
             balance = balance - amt;
         } else {
-            try {
-                throw new InSufficientFundException(String.format(
-                        "Current balance %d is less than requested amount %d",
-                        balance, amt));
-            }
-            catch (RuntimeException e) {
-                System.out.println(e);
 
-            }
+            throw new InSufficientFundException(String.format(
+                    "Current balance %d is less than requested amount %d",
+                    balance, amt));
         }
     }
     public boolean search(String acn) {

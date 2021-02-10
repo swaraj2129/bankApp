@@ -2,13 +2,13 @@ package main;
 import exception.InValidInputException;
 import registeration.Login;
 import registeration.Register;
-import java.util.regex.*;
+import registeration.Validation;
+
 
 import java.util.Scanner;
 import java.util.ArrayList;
 
 import static java.lang.System.exit;
-import static java.lang.System.setOut;
 
 public class Main {
     static Scanner sc = new Scanner(System.in);
@@ -18,36 +18,30 @@ public class Main {
         System.out.println("Select 2 for login");
         System.out.println("Select 3 for Exit");
     }
-    public static boolean validUsernamePasswordCheck(String toBeMatched){
-        String regex = "^[A-Za-z]\\w{4,8}$";
-        Pattern username_check = Pattern.compile(regex);
-        Matcher m = username_check.matcher(toBeMatched);
-        return m.matches();
-    }
+
+    /**
+     * @param reg is to store registered users in array
+     *            this method asks user to enter username and password
+     */
     public static void registerDisplay(ArrayList<Register> reg){
 
 
         System.out.println("Enter userName with at least 5 letters and at most 8 letter");
         String user = sc.nextLine();
-        if(!validUsernamePasswordCheck(user)){
-            try {
+        if(!Validation.validUsernameCheck(user)){
+
                 throw new InValidInputException("Enter a Valid UserName");
-            }
-            catch (InValidInputException e){
-                System.out.println(e);
-            }
+
         }
         else {
             System.out.println("Enter Password with at least 5 letters and at most 8 letter");
             String pass = sc.nextLine();
-            if (!validUsernamePasswordCheck(pass)){
-                try {
+            if (!Validation.validPasswordCheck(pass)){
+
                     throw new InValidInputException("Enter a Valid PassWord");
                 }
-                catch (InValidInputException e){
-                    System.out.println(e);
-                }
-            }
+
+
             else {
                 reg.add(new Register(user, pass));
 
@@ -56,6 +50,10 @@ public class Main {
         }
     }
 
+    /**
+     * this method asks user to enter username and password and sends to passWordCheck method to
+     * to check whether user has registered or not
+     */
     public static void loginDisplay(ArrayList<Register> reg,ArrayList<Login>loginArray){
         System.out.println("Enter userName");
         String user = sc.nextLine();
@@ -67,6 +65,12 @@ public class Main {
 
         passWordCheck(user,pass,reg,loginArray);
     }
+
+    /**
+     * This method checks whether username and password exists in reg array and if user has once
+     * logged in we pushed the login object in login array to remember the user in main memory
+     * else its data would be lost if he logs out
+     */
     public static void passWordCheck(String user, String pass, ArrayList<Register> reg, ArrayList<Login> loginArray){
         boolean exist = false;//exist is used for remembering the user if it has login successfully
         // and its object will be present in main memory stored in loginArray so that when user logout out
@@ -80,9 +84,9 @@ public class Main {
                 exist = userOnceloggedIn(user,loginArray);
 
                 if(!exist){
-                    Login lotemp = new Login(user);
-                    lotemp.success();
-                    loginArray.add(lotemp);
+                    Login temp_login = new Login(user);
+                    temp_login.success();
+                    loginArray.add(temp_login);
 
                 }
 
@@ -99,6 +103,9 @@ public class Main {
         }
     }
 
+    /**
+     * this method returns true if once any user login for first time
+     */
     private static boolean userOnceloggedIn(String user,ArrayList<Login> loginArray) {
         boolean exist = false;
         for (int j  = 0;j<loginArray.size();j++) {
@@ -127,10 +134,20 @@ public class Main {
 
             switch (ch) {
                 case 1:
-                    registerDisplay(reg);
+                    try {
+                        registerDisplay(reg);
+                    }
+                    catch (Exception e){
+                        System.out.println(e);
+                    }
                     break;
                 case 2:
-                    loginDisplay(reg,loginArray);
+                    try {
+                        loginDisplay(reg, loginArray);
+                    }
+                    catch (Exception e){
+                        System.out.println(e);
+                    }
                     break;
 
                 case 3:
