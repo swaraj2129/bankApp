@@ -7,16 +7,20 @@ import registeration.Validation;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import static java.lang.System.exit;
 
 public class Main {
     static Scanner sc = new Scanner(System.in);
+    private final static Logger logger = Logger.getLogger(Main.class.getName());
 
     public static void startDisplay(){
-        System.out.println("Select 1 for Register");
-        System.out.println("Select 2 for login");
-        System.out.println("Select 3 for Exit");
+        logger.info("Select 1 for Register");
+        //System.out.println("Select 1 for Register");
+        logger.info("Select 2 for login");
+       // System.out.println("Select 2 for login");
+        logger.info("Select 3 for Exit");
     }
 
     /**
@@ -25,8 +29,9 @@ public class Main {
      */
     public static void registerDisplay(ArrayList<Register> reg){
 
+        logger.info("Enter userName with at least 5 letters and at most 8 letter");
 
-        System.out.println("Enter userName with at least 5 letters and at most 8 letter");
+
         String user = sc.nextLine();
         if(!Validation.validUsernameCheck(user)){
 
@@ -34,7 +39,7 @@ public class Main {
 
         }
         else {
-            System.out.println("Enter Password with at least 5 letters and at most 8 letter");
+            logger.info("Enter Password with at least 5 letters and at most 8 letter");
             String pass = sc.nextLine();
             if (!Validation.validPasswordCheck(pass)){
 
@@ -45,7 +50,7 @@ public class Main {
             else {
                 reg.add(new Register(user, pass));
 
-                System.out.println("Registerd");
+                logger.info("Registerd");
             }
         }
     }
@@ -55,12 +60,13 @@ public class Main {
      * to check whether user has registered or not
      */
     public static void loginDisplay(ArrayList<Register> reg,ArrayList<Login>loginArray){
-        System.out.println("Enter userName");
+
+        logger.info("Enter UserName");
         String user = sc.nextLine();
-        System.out.println("Enter Password");
+        logger.info("Enter Password");
         String pass = sc.nextLine();
         if(reg.isEmpty()){
-            System.out.println("No user Exist");
+            logger.info("No user Exist");
         }
 
         passWordCheck(user,pass,reg,loginArray);
@@ -79,7 +85,7 @@ public class Main {
         for (int i = 0; i < reg.size(); i++) {
 
             if(reg.get(i).getUsername().equals(user)  && reg.get(i).getPassword().equals(pass)){
-                System.out.println("Entered");
+                logger.info("Entered");
                 enter = true;
                 exist = userOnceloggedIn(user,loginArray);
 
@@ -93,11 +99,11 @@ public class Main {
             }
             else if(reg.get(i).getUsername().equals(user)  && !reg.get(i).getPassword().equals(pass)){
                 enter = true;
-                System.out.println("IncorrectPassword");
+                logger.info("IncorrectPassword");
             }
 
             if (i== reg.size()-1 && !enter){
-                System.out.println("UserNotRegistered");
+                logger.info("UserNotRegistered");
             }
 
         }

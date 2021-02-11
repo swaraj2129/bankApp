@@ -2,12 +2,15 @@ package registeration;
 
 import account.Account;
 
+
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 public class Login {
     static final String NOT_EXIST= "Search Failed..account Not Exist..";
     static final String ENTER_ACCOUNT_NUMBER = "Enter account Number..";
+    private final static Logger logger = Logger.getLogger(Login.class.getName());
 
 
     public String username;
@@ -21,7 +24,7 @@ public class Login {
    /*
    * To get user input to search ccount number*/
     public static void searchDisplay(ArrayList<Account> accountArray){
-        System.out.print("Enter Account No U Want to Search...: ");
+        logger.info("Enter Account No U Want to Search...: ");
         String acn = sc.next();
         boolean found = false;
         for (int i = 0; i < accountArray.size(); i++) {
@@ -31,7 +34,7 @@ public class Login {
             }
         }
         if (!found) {
-            System.out.println(NOT_EXIST);
+            logger.info(NOT_EXIST);
         }
     }
 
@@ -40,7 +43,7 @@ public class Login {
     * */
 
     public static void depositDisplay(ArrayList<Account> accountArray){
-        System.out.print(ENTER_ACCOUNT_NUMBER);
+        logger.info(ENTER_ACCOUNT_NUMBER);
         String acn = sc.next();
         boolean found = false;
         for (int i = 0; i < accountArray.size(); i++) {
@@ -51,18 +54,18 @@ public class Login {
             }
         }
         if (!found) {
-            System.out.println(NOT_EXIST);
+            logger.info(NOT_EXIST);
         }
     }
 
     /*To give options to user for interaction with app*/
     public void success() {
 
-        System.out.println("Welcome to Java Application");
+        logger.info("Welcome to Java Application");
         int ch;
         do {
-            System.out.println("Main Menu\n1.Add account \n 2. Search By account number\n 3. Deposit\n 4. Withdrawal\n 5.Remove\n 6.Exit");
-            System.out.println("Ur Choice :");
+            logger.info("Main Menu\n1.Add account \n 2. Search By account number\n 3. Deposit\n 4. Withdrawal\n 5.Remove\n 6.Exit");
+            logger.info("Ur Choice :");
             ch = sc.nextInt();
             switch (ch) {
                 case 1:
@@ -104,10 +107,10 @@ public class Login {
                     removeDisplay();
                     break;
                 case 6:
-                    System.out.println("Logout");
+                    logger.info("Logout");
                     break;
                 default:
-                    System.out.println("Incorrect number entered");
+                    logger.info("Incorrect number entered");
             }
         }
         while (ch != 6);
@@ -115,7 +118,7 @@ public class Login {
     }
     /*Get Input for removing account number*/
     private void removeDisplay() {
-        System.out.print(ENTER_ACCOUNT_NUMBER);
+        logger.info(ENTER_ACCOUNT_NUMBER);
         String acn = sc.next();
         boolean found = false;
         for (int i = 0; i < accountArray.size(); i++) {
@@ -132,7 +135,7 @@ public class Login {
 
     /*To get input for withdrawl from account*/
     private void withdrawDisplay(ArrayList<Account> accountArray) {
-        System.out.print(ENTER_ACCOUNT_NUMBER);
+        logger.info(ENTER_ACCOUNT_NUMBER);
         String acn = sc.next();
         boolean found = false;
         for (Account  eachAccount: accountArray) {
@@ -143,7 +146,7 @@ public class Login {
             }
         }
         if (!found) {
-            System.out.println(NOT_EXIST);
+            logger.info(NOT_EXIST);
         }
     }
 }
