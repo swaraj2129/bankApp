@@ -3,39 +3,67 @@ import exception.InValidInputException;
 import registeration.Login;
 import registeration.Register;
 import registeration.Validation;
+import autoread.AutoRead;
 
-
+import java.io.*;
+import java.io.*;
+import java.util.*;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import static java.lang.System.exit;
+import static java.lang.System.setOut;
 
 public class Main {
     static Scanner sc = new Scanner(System.in);
+    private final static Logger logger = Logger.getLogger(Main.class.getName());
+
+
+
+
 
     public static void startDisplay(){
-        System.out.println("Select 1 for Register");
-        System.out.println("Select 2 for login");
-        System.out.println("Select 3 for Exit");
+        logger.info("Select 1 for Register");
+        //System.out.println("Select 1 for Register");
+        logger.info("Select 2 for login");
+       // System.out.println("Select 2 for login");
+        logger.info("Select 3 for automatic input ");
+
+        logger.info("Select 4 for Exit");
+    }
+
+    public static void loginDisplayInput(ArrayList<Register> reg,ArrayList<Login>loginArray){
+        logger.info("Enter UserName");
+        String user = sc.nextLine();
+        logger.info("Enter Password");
+        String pass = sc.nextLine();
+        loginDisplay(reg,loginArray,user,pass);
+    }
+    public static void registerDisplayInput(ArrayList<Register> reg){
+        logger.info("Enter userName with at least 5 letters and at most 8 letter");
+        String user = sc.nextLine();
+        logger.info("Enter Password with at least 5 letters and at most 8 letter");
+        String pass = sc.nextLine();
+        registerDisplay(reg,user,pass);
     }
 
     /**
      * @param reg is to store registered users in array
      *            this method asks user to enter username and password
      */
-    public static void registerDisplay(ArrayList<Register> reg){
+    public static void registerDisplay(ArrayList<Register> reg,String user,String pass){
 
 
-        System.out.println("Enter userName with at least 5 letters and at most 8 letter");
-        String user = sc.nextLine();
+        //String user = sc.nextLine();
         if(!Validation.validUsernameCheck(user)){
 
                 throw new InValidInputException("Enter a Valid UserName");
 
         }
         else {
-            System.out.println("Enter Password with at least 5 letters and at most 8 letter");
-            String pass = sc.nextLine();
+            logger.info("Enter Password with at least 5 letters and at most 8 letter");
+          //  String pass = sc.nextLine();
             if (!Validation.validPasswordCheck(pass)){
 
                     throw new InValidInputException("Enter a Valid PassWord");
@@ -45,7 +73,7 @@ public class Main {
             else {
                 reg.add(new Register(user, pass));
 
-                System.out.println("Registerd");
+                logger.info("Registerd");
             }
         }
     }
@@ -54,13 +82,11 @@ public class Main {
      * this method asks user to enter username and password and sends to passWordCheck method to
      * to check whether user has registered or not
      */
-    public static void loginDisplay(ArrayList<Register> reg,ArrayList<Login>loginArray){
-        System.out.println("Enter userName");
-        String user = sc.nextLine();
-        System.out.println("Enter Password");
-        String pass = sc.nextLine();
+    public static void loginDisplay(ArrayList<Register> reg,ArrayList<Login>loginArray,String user,String pass){
+
+
         if(reg.isEmpty()){
-            System.out.println("No user Exist");
+            logger.info("No user Exist");
         }
 
         passWordCheck(user,pass,reg,loginArray);
@@ -79,7 +105,7 @@ public class Main {
         for (int i = 0; i < reg.size(); i++) {
 
             if(reg.get(i).getUsername().equals(user)  && reg.get(i).getPassword().equals(pass)){
-                System.out.println("Entered");
+                logger.info("Entered");
                 enter = true;
                 exist = userOnceloggedIn(user,loginArray);
 
@@ -93,11 +119,11 @@ public class Main {
             }
             else if(reg.get(i).getUsername().equals(user)  && !reg.get(i).getPassword().equals(pass)){
                 enter = true;
-                System.out.println("IncorrectPassword");
+                logger.info("IncorrectPassword");
             }
 
             if (i== reg.size()-1 && !enter){
-                System.out.println("UserNotRegistered");
+                logger.info("UserNotRegistered");
             }
 
         }
@@ -118,9 +144,22 @@ public class Main {
         return exist;
     }
 
+    public static void autoMove(ArrayList<Register> reg,ArrayList<Login>loginArray){
+        try {
+            Properties prop = AutoRead.readPropertiesFile("abc");
+
+            registerDisplay(reg,prop.getProperty("username"),prop.getProperty("password"));
+            loginDisplay(reg,loginArray,prop.getProperty("username"),prop.getProperty("password"));
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
     public static void main(String[] args) {
         ArrayList<Register> reg = new ArrayList<>();
         ArrayList<Login> loginArray = new ArrayList<>();
+
 
 
         Scanner sc= new Scanner(System.in);
@@ -135,7 +174,7 @@ public class Main {
             switch (ch) {
                 case 1:
                     try {
-                        registerDisplay(reg);
+                        registerDisplayInput(reg);
                     }
                     catch (Exception e){
                         System.out.println(e);
@@ -143,7 +182,7 @@ public class Main {
                     break;
                 case 2:
                     try {
-                        loginDisplay(reg, loginArray);
+                        loginDisplayInput(reg, loginArray);
                     }
                     catch (Exception e){
                         System.out.println(e);
@@ -151,9 +190,12 @@ public class Main {
                     break;
 
                 case 3:
-                    exit(-1);
+                    autoMove(reg,loginArray);
                     break;
 
+                case 4:
+                    exit(-1);
+                    break;
 
                 default:
                     exit(-1);

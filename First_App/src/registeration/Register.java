@@ -28,12 +28,5 @@ public class Register {
         this.password = password;
     }
 
-    void prompt_valid() {
-        System.out.println("Enter Username");
-     //   username = sc.nextLine();
-        System.out.println("Enter Password");
 
-       // password = sc.nextLine();
-
-    }
 }

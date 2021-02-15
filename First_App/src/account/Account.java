@@ -1,7 +1,9 @@
 package account;
 import exception.*;
+import registeration.Login;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class Account {
     private String accno;
@@ -9,30 +11,25 @@ public class Account {
     private long balance;
     Scanner sc = new Scanner(System.in);
     private static final String GREATER_THAN_ZERO="Enter value > 0";
+    private final static Logger logger = Logger.getLogger(Login.class.getName());
 
-    public void addAccount() {
-        System.out.print("Enter Account No: ");
+    public void addAccount(String accno,String name ,long balance) {
 
-
-        accno = sc.next();
-        int i = Integer.parseInt(accno);
+        long i = Long.parseLong(accno);
         if (i <= 0){
             throw new InValidInputException(GREATER_THAN_ZERO);
         }
         else {
-            System.out.print("Enter Name: ");
-            name = sc.next();
-            System.out.print("Enter Balance: ");
-            balance = sc.nextLong();
+            this.accno = accno;
+            this.name = name;
+            this.balance = balance;
+            logger.info("Account Created");
+            AccountDetails();
         }
     }
 
 
-    public void deposit() {
-        long amt;
-
-        System.out.println("Enter Amount : ");
-        amt = sc.nextLong();
+    public void deposit(long amt) {
         if (amt < 0){
 
             throw new InValidInputException(GREATER_THAN_ZERO);
@@ -41,10 +38,8 @@ public class Account {
             balance = balance + amt;
     }
 
-    public void withdraw() {
-        long amt;
-        System.out.println("Enter Amount : ");
-        amt = sc.nextLong();
+    public void withdraw(long amt) {
+
         if (balance >= amt) {
             balance = balance - amt;
         } else {
@@ -63,7 +58,7 @@ public class Account {
     }
 
     public void AccountDetails() {
-        System.out.println(accno + "," + name + "," + balance);
+        logger.info(accno + "," + name + "," + balance);
     }
 
 
