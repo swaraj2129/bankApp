@@ -1,9 +1,8 @@
 
-S	java:S106"9Replace this use of System.out or System.err by a logger.(šÜÃ‰ûÿÿÿÿ
-c	java:S1000"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üêÙ˜
-N	java:S106"9Replace this use of System.out or System.err by a logger.(Ü³È˜
-S	java:S106"9Replace this use of System.out or System.err by a logger.(Úîÿªøÿÿÿÿ
-N	java:S1061"9Replace this use of System.out or System.err by a logger.(æŸÌ”
-N	java:S106"9Replace this use of System.out or System.err by a logger.(Ð¤Ã—
-S	java:S106"9Replace this use of System.out or System.err by a logger.(Úîÿªøÿÿÿÿ
-]	java:S125%"<This block of commented-out lines of code should be removed.(ðÛÀêþÿÿÿÿ8²¨ºö.
+a	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üêÙ˜
+E
+java:S3416"*Update this logger to use "Account.class".(Ø¹Òá8ç“×þø.
+Q
+java:S2629"7Use the built-in formatting to construct this argument.(­³=8£‹Üþø.
+`
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ø¹Òá8ç“×þø.

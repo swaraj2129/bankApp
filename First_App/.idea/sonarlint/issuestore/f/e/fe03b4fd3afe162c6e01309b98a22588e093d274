@@ -1,0 +1,31 @@
+
+—
+java:S1319""uThe type of the "loginArray" object should be an interface such as "List" rather than the implementation "ArrayList".(ÈŠØÑıÿÿÿÿ8îÈéüú.
+
+java:S1319""nThe type of the "reg" object should be an interface such as "List" rather than the implementation "ArrayList".(ÈŠØÑıÿÿÿÿ8îÈéüú.
+X	java:S125@"<This block of commented-out lines of code should be removed.(İ‹è8îÈéüú.
+r	java:S117o"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ú®Êùøÿÿÿÿ8îÈéüú.
+—
+java:S1319S"uThe type of the "loginArray" object should be an interface such as "List" rather than the implementation "ArrayList".(Àı¹±ûÿÿÿÿ8îÈéüú.
+[	java:S106³"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8îÈéüú.
+X	java:S125"<This block of commented-out lines of code should be removed.(•—ç³8îÈéüú.
+‹
+java:S13195"nThe type of the "reg" object should be an interface such as "List" rather than the implementation "ArrayList".(ŸåÊÏ8îÈéüú.
+]	java:S125"<This block of commented-out lines of code should be removed.(Ú€—¶øÿÿÿÿ8îÈéüú.
+
+java:S1319S"nThe type of the "reg" object should be an interface such as "List" rather than the implementation "ArrayList".(Àı¹±ûÿÿÿÿ8îÈéüú.
+‹
+java:S1319b"nThe type of the "reg" object should be an interface such as "List" rather than the implementation "ArrayList".(Å£©€8îÈéüú.
+g
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ƒ¢³âúÿÿÿÿ8îÈéüú.
+[	java:S106š"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8îÈéüú.
+Œ
+java:S1319‘"nThe type of the "reg" object should be an interface such as "List" rather than the implementation "ArrayList".(±òÿ¡8îÈéüú.
+X	java:S1258"<This block of commented-out lines of code should be removed.(©ŒÉ²8îÈéüú.
+’
+java:S1319b"uThe type of the "loginArray" object should be an interface such as "List" rather than the implementation "ArrayList".(Å£©€8îÈéüú.
+‹
+java:S1319)"nThe type of the "reg" object should be an interface such as "List" rather than the implementation "ArrayList".(”€¯Ü8îÈéüú.
+“
+java:S1319‘"uThe type of the "loginArray" object should be an interface such as "List" rather than the implementation "ArrayList".(±òÿ¡8îÈéüú.
+[	java:S106»"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8îÈéüú.

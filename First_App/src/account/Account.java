@@ -1,6 +1,5 @@
 package account;
 import exception.*;
-import registeration.Login;
 
 import java.util.Scanner;
 import java.util.logging.Logger;
@@ -11,7 +10,7 @@ public class Account {
     private long balance;
     Scanner sc = new Scanner(System.in);
     private static final String GREATER_THAN_ZERO="Enter value > 0";
-    private final static Logger logger = Logger.getLogger(Login.class.getName());
+    private final static Logger logger = Logger.getLogger(Account.class.getName());
 
     public void addAccount(String accno,String name ,long balance) {
 
