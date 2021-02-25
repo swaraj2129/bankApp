@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.util.logging.Logger;
 
-public class FileReadController {
+public class FileReadController implements ReaderLogin {
     private final static Logger logger = Logger.getLogger(FileReadController.class.getName());
 
-    public void fileRead(ArrayList<Register> reg, ArrayList<AfterLogin>loginArray){
+    public void read(ArrayList<Register> reg, ArrayList<AfterLogin>loginArray){
         try {
             Properties prop;
             prop = FileRead.readPropertiesFile("resources/input_file.properties");

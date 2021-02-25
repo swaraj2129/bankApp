@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 
 import static java.lang.System.exit;
 
-public class ManualDisplayView {
+public class ManualDisplayView implements ReaderLogin {
 Scanner sc = new Scanner(System.in);
     private final static Logger logger = Logger.getLogger(ManualDisplayView.class.getName());
 
@@ -42,7 +42,7 @@ Scanner sc = new Scanner(System.in);
         }
     }
 
-    public void display(ArrayList<Register> reg,ArrayList<AfterLogin>loginArray){
+    public void read(ArrayList<Register> reg,ArrayList<AfterLogin>loginArray){
         int ch;
         do {
             startDisplay();

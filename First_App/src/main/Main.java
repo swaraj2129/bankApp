@@ -1,8 +1,5 @@
 package main;
-import registeration.AfterLogin;
-import registeration.FileReadController;
-import registeration.ManualDisplayView;
-import registeration.Register;
+import registeration.*;
 import PropertiesFileRead.FileRead;
 
 import java.util.*;
@@ -38,12 +35,12 @@ public class Main {
 
     }
     private void fileOptionDisplay(ArrayList<Register> reg,ArrayList<AfterLogin>loginArray) {
-        FileReadController controller = new FileReadController();
-        controller.fileRead(reg,loginArray);
+        ReaderLogin controller = new FileReadController();
+        controller.read(reg,loginArray);
     }
 
     private void manualOptionDisplay(ArrayList<Register> reg,ArrayList<AfterLogin>loginArray) {
-        ManualDisplayView userView =  new ManualDisplayView();
-        userView.display(reg,loginArray);
+        ReaderLogin userView =  new ManualDisplayView();
+        userView.read(reg,loginArray);
     }
 }
